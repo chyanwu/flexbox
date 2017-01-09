@@ -1,0 +1,9 @@
+.grid {
+	display: flex;
+}
+
+.grid-cell {
+	flex: 1;
+	background-color: #D9EDF7;
+	margin: 5px 10px;
+}

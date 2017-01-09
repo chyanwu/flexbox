@@ -1,0 +1,96 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #E5E5E5;
+	margin: 8px;
+}
+
+.head {
+	background-color: #E7E7E7;
+	flex: 1;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex: 1;
+	font-size: 40px;
+	margin-left: 10px;
+}
+
+.info {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 10px;
+}
+
+.line {
+	border: 1px solid #000000;
+	margin: 0 10px;
+}
+
+.body {
+	display: flex;
+	flex: 1;
+}
+
+.menu {
+	width: 300px;
+	overflow-y: auto;
+}
+
+.menu ul {
+	border-bottom: 0px;
+}
+
+.menu ul li a {
+	margin: 0px;
+}
+
+a, a active, a:hover, a:focus {
+	border: 0px !important;
+}
+
+.lines {
+	border: 1px solid #E7E7E7;
+}
+
+.arrow {
+	display: flex;
+	background-color: #EEEEEE;
+	width: 10px;
+	align-items: center;
+}
+
+.arrow-item {
+	height: 50px;
+}
+
+.content {
+	
+}
+
+.foot {
+	background-color: #E7E7E7;
+	flex: 1;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.compname {
+}
+
+.space {
+	width: 20px;
+}
+
+.addr {
+}
+
+.version {
+	
+}

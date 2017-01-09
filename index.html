@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/custom.css" />
+	</head>
+	<body class="main">
+		<header class="head">
+			<div class="title">分享DEMO</div>
+			<div class="info">
+				<div>用户名：</div>
+				<div>admin</div>
+				<div class="line"></div>
+				<div>当前状态：</div>
+				<div>上线</div>
+			</div>
+		</header>
+		<div class="body">
+			<nav class="menu open">
+				<ul class="nav nav-tabs nav-stacked">
+					<li id="flexdice" class="businessmenu">
+						<a href="#">
+							<i class="glyphicon glyphicon-align-left"></i>骰子布局
+						</a>
+					</li>
+					<li class="lines"></li>
+					<li id="flexbase" class="businessmenu">
+						<a href="#">
+							<i class="glyphicon glyphicon-align-left"></i>基本网格布局
+						</a>
+					</li>
+					<li id="flexpercent" class="businessmenu">
+						<a href="#">
+							<i class="glyphicon glyphicon-align-left"></i>百分比布局
+						</a>
+					</li>
+					<li class="lines"></li>
+					<li id="flexinput" class="businessmenu">
+						<a href="#">
+							<i class="glyphicon glyphicon-align-left"></i>输入框布局
+						</a>
+					</li>
+					<li class="lines"></li>
+					<li id="flexflow" class="businessmenu">
+						<a href="#">
+							<i class="glyphicon glyphicon-align-left"></i>流式布局
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="arrow">
+				<div class="arrow-item"><</div>
+			</div>
+			<div class="content" style="margin-left: 10px; padding: 0px;">
+				<iframe height="100%" width="100%" id="mainframe"
+					onload="initIFrameDisplay(this)" scrolling="auto" frameborder="0"></iframe>
+			</div>
+		</div>
+		<footer class="foot">
+			<div class="compname">珠海***有限公司</div>
+			<div class="space"></div>
+			<div class="addr">广东省珠海市科技一路...号</div>
+			<div class="space"></div>
+			<div class="version">版本：V1.0</div>
+			<div class="space"></div>
+			<div class="qq">微信：chyanwu68 QQ:297129864</div>
+		</footer>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script>
+			function initPageDisplay() {
+				var height = window.innerHeight;
+				var headerH = Math.round(height/12);
+				var footerH = Math.round(height/18);
+				var bodyH = height - headerH - footerH - 20;
+				$(".head").height(headerH);
+				$(".body").height(bodyH);
+				$(".arrow").height(bodyH);
+				$(".foot").height(footerH);
+			};
+			initPageDisplay();
+			
+			$(".arrow-item").click(function(){
+				if($(".menu").hasClass("open")) {
+					$(".menu").animate({width: "0px"}, 300, function(){
+						$(".arrow-item").html(">");
+						$(".menu").removeClass("open");
+						$(".menu").css('display', 'none');
+						$("#mainframe").width($("#mainframe").width()+300);
+					});
+				} else {
+					$(".menu").animate({width: "300px"}, 300, function() {
+						$(".arrow-item").html("<");
+						$(".menu").addClass("open");
+						$(".menu").css('display', '');
+						$("#mainframe").width($("#mainframe").width()-300);
+					});
+				}
+			});
+
+			function initIFrameDisplay(obj) {
+				var height = $(".body").height();
+				var width = $(".body").width();
+				obj.height = $(".content").height() + "px";
+				obj.width = width - ($(".menu").width()<300? 300:$(".menu").width())  - $(".arrow").width() + "px";
+			};
+			
+			$(window).resize(function() {
+				windowAlign();
+				initIFrameDisplay($("#mainframe")[0]);
+			});
+			
+			function windowAlign() {
+				initPageDisplay();
+			};
+			
+			// 默认加载第一个菜单
+		    changeIframe("flexdice");
+		    // 绑定菜单按钮
+			$(".businessmenu").click(function() {
+				changeIframe(this.id);
+			});
+			
+			// 切换页面
+			function changeIframe(menuid) {
+				// 选中菜单
+				if ($("#" + menuid).hasClass("active")) {
+					return;
+				}
+				$("#" + menuid).addClass("active").siblings().removeClass("active");
+				var src = "";
+				switch (menuid) {
+				case "flexdice":
+					src = "flex/flexdice/flexdice.html";			
+					break;
+				case "flexbase":
+					src = "flex/flexbase/flexbase.html";			
+					break;
+				case "flexpercent":
+					src = "flex/flexpercent/flexpercent.html";			
+					break;
+				case "flexinput":
+					src = "flex/flexinput/flexinput.html";			
+					break;
+				case "flexflow":
+					src = "flex/flexflow/flexflow.html";			
+					break;
+				}
+				$("#mainframe")[0].src = src;
+			};
+		</script>
+	</body>
+</html>
