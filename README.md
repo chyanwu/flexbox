@@ -2,7 +2,7 @@
 学习使用flexbox布局做界面demo
 
 界面截图
-![image](https://github.com/chyanwu/flexbox/tree/master/img/index.png)
+![image](https://github.com/chyanwu/flexbox/blob/master/img/index.png)
 ![image](https://github.com/chyanwu/flexbox/tree/master/img/2.png)
 ![image](https://github.com/chyanwu/flexbox/tree/master/img/3.png)
 
